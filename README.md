@@ -8,6 +8,7 @@ Demonstrating some cool things you can do with VBA inside Word Documents:
 3. The ability to dynamically assign a function to raw bytes and execute.
 4. The ability to implement custom deobfuscation/decoding from Word Document Headers.
 5. The ability to write deobfuscated/decoded data to disk and launch EXEs.
+**For added safety, the DOCX does not have the VBA macro in it. You need to put it in there yourself.
 
 ## HTA_Shenanigans
 Simple example of an HTA file that opens a cmd prompt.
