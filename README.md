@@ -1,5 +1,5 @@
 # Catch Me If You Can
-This project demonstrates some interesting things you can do with VBA, Word, HTA, ASM, and EXE.
+This project demonstrates some "interesting" things you can do with ASM, VBA, Word, HTA, and EXE.
 
 ## VBA_Shenanigans
 Demonstrating some cool things you can do with VBA inside Word Documents:
