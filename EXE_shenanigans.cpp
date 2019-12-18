@@ -1,3 +1,14 @@
+/*
+' This binary has a TLS callback which checks for a debugger 
+' via the PEB. If a debugger is found then it finds the address of 
+' main and VirtualProtects the page to ERW. It then writes 0x01 
+' to the first byte at that address and re-protects the memory with 
+' the original protections. This essentially breaks the assembly 
+' language at that location and causes a fault when executing. 
+' If you execute the binary outside of a debugger, the TLS will call 
+' a subfunction which prints "...catch this string", returns to TLS, goes 
+' to main, prints "...you didn't catch the string", and then infinite loops.
+*/
 #include "stdafx.h"
 #include <iostream>
 #include <stdio.h>
