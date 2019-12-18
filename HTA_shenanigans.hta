@@ -1,0 +1,15 @@
+<html>
+  <head>
+    <title>Unfortunate</title>
+    <hta:application id="hello"
+      applicationName="helloapp"
+      windowState="normal">
+  </head>
+<SCRIPT Language="VBScript">
+Set objShell = CreateObject("Shell.Application")
+Sub Window_Onload
+	objShell.ShellExecute  "cmd.exe", "", "", "runas", 1
+End Sub
+</SCRIPT>
+<img src="file://asdf.hta"/>
+</html>
