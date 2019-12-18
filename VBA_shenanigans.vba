@@ -72,6 +72,25 @@ End Sub
 ' executes it via the Hkmyg13 function. I believe part of this was taken from 
 ' a metasploit technique. I can't remember. I just remember modifying it to 
 ' deobfuscate a custom binary from the document header.
+        
+' The binary file is hidden in the header via 1 pixel  text. Because 
+' the text is so small it doesn't render as anything until the user 
+' interacts with the text document most of the time. This text can 
+' be further hidden by making it white. 
+' The VBA macro reads the header and decodes the ASCII 2 letters 
+' at a time and decodes these into a hex byte via CLng and XORs 
+' it with 4 to produce the original hex byte. 
+' It then writes these bytes one at a time to an exe file in the user's 
+' TEMP folder. The EXE is then launched.
+' The binary it decodes has a TLS callback which checks for a debugger 
+' via the PEB. If a debugger is found then it finds the address of 
+' main and VirtualProtects the page to ERW. It then writes 0x01 
+' to the first byte at that address and re-protects the memory with 
+' the original protections. This essentially breaks the assembly 
+' language at that location and causes a fault when executing. 
+' If you execute the binary outside of a debugger, the TLS will call 
+' a subfunction which prints "...catch this string", returns to TLS, goes 
+' to main, prints "...you didn't catch the string", and then infinite loops.
 Sub DeobfuscateBinary()
     Dim Hkmyg7 As Integer
     Dim Hkmyg1 As String
