@@ -10,8 +10,8 @@ Demonstrating some cool things you can do with VBA inside Word Documents:
 5. The ability to write deobfuscated/decoded data to disk and launch EXEs.
 * For added safety, the DOCX does not have the VBA macro in it. You need to put it in there yourself.
 
-## HTA_Shenanigans
-Simple example of an HTA file that opens a cmd prompt.
-
 ## EXE_Shenanigans
 Some interesting things you can do with TLS callbacks, debugger detection, and polymorphic code. This was specifically written to be the stage 2 for VBA_Shenanigans.
+
+## HTA_Shenanigans
+Simple example of an HTA file that opens a cmd prompt.
